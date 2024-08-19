@@ -1,1 +1,1 @@
-Hello
+We propose Alt-MoE, a modality-agnostic training strategy and architecture for LMMs. By integrating high-performance uni-modal models, it can easily align modality pairs in various directions and generalize to new tasks and modality. The lightweight connection modules ensure both pre-training efficiency and data efficiency.
