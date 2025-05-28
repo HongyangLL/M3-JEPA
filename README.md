@@ -1,4 +1,6 @@
 # 🔍 M3-Jepa: Multimodal Alignment via Multi-directional MoE based on the JEPA framework
+📢 **Published in**:  
+**Proceedings of the Forty-second International Conference on Machine Learning (ICML), 2025**
 
 **M3-Jepa** is a scalable multimodal alignment framework that moves beyond token-level matching by aligning representations in the **latent space**. Built upon the Joint-Embedding Predictive Architecture (JEPA), M3-Jepa introduces a **multi-directional Mixture-of-Experts (MoE)** predictor and optimizes alignment via alternating uni-directional tasks. This approach maximizes mutual information and effectively mitigates modality bias. Extensive experiments show that M3-Jepa achieves **state-of-the-art performance**, strong generalization across unseen modalities and domains, and high computational efficiency. M3-Jepa offers a promising path for **self-supervised multimodal learning** and **open-world understanding**.
 
