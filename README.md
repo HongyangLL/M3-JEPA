@@ -1,1 +1,30 @@
-Current multimodal alignment strategies primarily use single or unified modality encoders, while optimizing the alignment on the original token space. Such a framework is easy to implement and incorporate with the pretrained knowledge, but might result in information bias. To deal with such issues, the joint encoding predictive architecture (JEPA) learns the alignment loss on the latent space, with a predictor to convert the input encoding to the output latent space. However, the application of JEPA in multimodal scenarios is limited so far. In this paper, we introduce M3-Jepa, a scalable multimodal alignment framework, with the predictor implemented by a multi-directional mixture of experts (MoE). We demonstrate the framework can maximize the mutual information with information theory derivations, by alternating the optimization between different uni-directional tasks. By thoroughly designed experiments, we show that M3-Jepa can obtain state-of-the-art performance on different modalities and tasks, generalize to unseen datasets and domains, and is computationally efficient in training and inference. Our study indicates that M3-Jepa might provide a new paradigm to self-supervised learning and open-world modeling.
+# 🔍 M3-Jepa: Scalable Multimodal Alignment via Latent Space Prediction
+
+**M3-Jepa** is a scalable multimodal alignment framework that moves beyond token-level matching by aligning representations in the **latent space**. Built upon the Joint-Embedding Predictive Architecture (JEPA), M3-Jepa introduces a **multi-directional Mixture-of-Experts (MoE)** predictor and optimizes alignment via alternating uni-directional tasks. This approach maximizes mutual information and effectively mitigates modality bias. Extensive experiments show that M3-Jepa achieves **state-of-the-art performance**, strong generalization across unseen modalities and domains, and high computational efficiency. M3-Jepa offers a promising path for **self-supervised multimodal learning** and **open-world understanding**.
+
+## 🚀 Highlights
+
+- ✅ We propose a novel modality-agnostic multi-modal alignment paradigm, with the alignment conducted on the latent space, which is computationally efficient especially when employed as a retriever.
+- ✅ We leverage multi-directional MoE as the cross-modal connector, optimizing by alternating the gradient descent between different unidirectional alignment task.
+- ✅ We derive an information-theoretical explanation analysis, demonstrating the optimality of M3-Jepa.
+- ✅  Our experimental results demonstrate remarkable multi-modal alignment accuracy and efficiency, encompassing text, image and audio modalities.
+
+## 📄 Paper
+
+> **M3-Jepa: Scalable Multimodal Alignment via Latent Space Prediction**  
+> Hongyang Lei, et al.  
+> Accepted at *ICML 2025*.  
+> 📄 [arXiv (2409.05929)](https://arxiv.org/pdf/2409.05929)  
+> 📝 OpenReview: *coming soon*  
+> 🔗 ICML proceedings link: *coming soon*
+
+## 🛠 Installation
+
+```bash
+# Clone the repository
+git clone [https://github.com/HongyangLL/M3-JEPA/]
+cd m3-jepa
+
+# Install dependencies
+pip install -r requirements.txt
+
