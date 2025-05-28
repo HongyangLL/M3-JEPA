@@ -41,6 +41,14 @@ cd m3-jepa
 pip install -r requirements.txt
 ```
 
+## 📌 TODO
+
+- [ ] Release the initial version of M3-Jepa
+- [x] Add arXiv citation and ICML acceptance info
+- [ ] Release official ICML OpenReview and Proceedings links
+- [ ] Upload training scripts and pretrained checkpoints
+- [ ] Provide inference demo notebook
+- [ ] ...
 ## 📚 Citation
 
 If you find this work useful in your research, please consider citing our paper:
