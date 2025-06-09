@@ -6,10 +6,17 @@ M3-JEPA is a novel framework for multimodal learning that addresses the limitati
 
 ## 🚀 Highlights
 
-- ✅ We propose a novel modality-agnostic multi-modal alignment paradigm, with the alignment conducted on the latent space, which is computationally efficient especially when employed as a retriever.
-- ✅ We leverage multi-directional MoE as the cross-modal connector, optimizing by alternating the gradient descent between different unidirectional alignment task.
-- ✅ We derive an information-theoretical explanation analysis, demonstrating the optimality of M3-Jepa.
-- ✅  Our experimental results demonstrate remarkable multi-modal alignment accuracy and efficiency, encompassing text, image and audio modalities.
+### 🔍 Key Contributions of M3-JEPA
+
+- ✅ **Any-to-Any Multimodal Alignment:** We propose a novel *any-to-any* multimodal alignment paradigm based on **JEPA**, mitigating modality collapse by aligning in the **latent embedding space** rather than the token space.
+
+- ⚡ **Efficient MoE Predictor:** We introduce a computationally efficient **multi-gate Mixture-of-Experts (MoE)** architecture as the cross-modal predictor in JEPA, while **freezing most modality encoder parameters** to reduce training overhead.
+
+- 🔄 **Disentangled Gating Mechanism:** Our design **disentangles the gating function** into **modality-specific** and **shared components**, and is supported by an **information-theoretic analysis** of its optimality.
+
+- 🔁 **Alternating Task Optimization:** We optimize M3-JEPA using **alternating gradient descent (AGD)** over multiple **multi-directional multimodal tasks**, and provide a discussion of its **convergence behavior**.
+
+- 🧪 **Extensive Evaluation:** Our experiments show **strong alignment accuracy and computational efficiency**, covering a wide range of modalities including **text, image, audio**, and more.
 
 ## 📄 Paper
 
