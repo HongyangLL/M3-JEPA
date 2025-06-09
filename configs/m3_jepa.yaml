@@ -1,1 +1,53 @@
+data:
+  batch_size: 120 # origin: 128
 
+  image_folder: images/
+  num_workers: 10
+  pin_mem: true
+  root_path: /vepfs/DI/beijing-public/datasets/multimodal/mmjepa_coco
+
+logging:
+  folder: experiment_logs/m3jepa/
+  write_tag: m3-jepa
+  
+optimization:
+  epochs: 500
+  ipe_scale: 1.0
+  patience: 10
+
+  t2i_start_lr: 1.0e-3
+  t2i_lr: 1.5e-3
+  t2i_final_weight_decay: 0.2
+  t2i_final_lr: 5.5e-6
+  t2i_warmup: 0.1
+  t2i_weight_decay: 0.005 
+
+  i2t_start_lr: 1.0e-3
+  i2t_lr: 1.5e-3
+  i2t_final_weight_decay: 0.2
+  i2t_final_lr: 5.5e-6
+  i2t_warmup: 50
+  i2t_weight_decay: 0.005  
+
+tb:
+  port: 6006
+  log_dir: vepfs/user/leihongyang/tensorboard_logs/avg_log/tensorboard_logs20
+
+models:
+  imag_encoder_name: dinov2-large #dinov2-base  dinov2-small dinov2-large  dinov2-giant
+  text_encoder_name: Qwen2.5-7B #llama-3-8b  Mixtral-8x7B-Instruct-v0.1 deberta-v3-base Qwen2-7B-Instruct
+
+proxy_tasks:
+  - image2text
+  - text2image
+
+MoE:
+  num_experts: 12
+  k: 4
+  drop: 0.1
+  hidden_size: 2048
+
+predictor: moe_mlp # mlp moe_mlp
+
+iter_task: true
+prob_samp: false
