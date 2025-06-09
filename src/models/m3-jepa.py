@@ -7,8 +7,7 @@ import torch.nn as nn
 from transformers import AutoModel, AutoModelForCausalLM
 
 from src.models import model_paths
-from src.models.projection_mlp import Creat_MLP_predictor
-from src.models.MoE import create_moe_predictor
+from src.models.MMoE import create_mmoe_predictor
 from src.all_loss import loss_fn_1, symmetric_contrastive_loss
 from peft import get_peft_model, LoraConfig
 
@@ -16,20 +15,20 @@ from peft import get_peft_model, LoraConfig
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-class MMJepa(nn.Module):
+class M3Jepa(nn.Module):
     """Multi-modal Joint Embedding Predictive Architecture (JEPA) model.
 
-    This model integrates vision and text encoders with a predictor (MLP or MoE)
+    This model integrates vision and text encoders with a predictor (MLP or MMoE)
     for text-to-image and image-to-text tasks, using L2 and contrastive losses.
 
     Args:
         image_encoder_name (str): Name of the image encoder model.
         text_encoder_name (str): Name of the text encoder model.
-        num_experts (int): Number of experts for MoE predictor.
+        num_experts (int): Number of experts for MMoE predictor.
         hidden_size (int): Size of hidden layers in predictor.
-        k_expert (int): Number of top experts to select in MoE.
+        k_expert (int): Number of top experts to select in MMoE.
         dropout_rate (float): Dropout probability.
-        predictor_type (str): Type of predictor ('mlp' or 'moe_mlp').
+        predictor_type (str): Type of predictor ('mlp' or 'mmoe_mlp').
     """
     def __init__(
         self,
@@ -64,8 +63,8 @@ class MMJepa(nn.Module):
                 text_dim=text_dim,
                 drop=dropout_rate
             )
-        elif predictor_type == 'moe_mlp':
-            self.predictor = create_moe_predictor(
+        elif predictor_type == 'mmoe_mlp':
+            self.predictor = create_mmoe_predictor(
                 num_experts=num_experts,
                 image_dim=image_dim,
                 text_dim=text_dim,
@@ -74,7 +73,7 @@ class MMJepa(nn.Module):
                 drop=dropout_rate
             )
         else:
-            raise ValueError(f"Invalid predictor_type: {predictor_type}. Expected 'mlp' or 'moe_mlp'.")
+            raise ValueError(f"Invalid predictor_type: {predictor_type}. Expected 'mlp' or 'mmoe_mlp'.")
 
         # Contrastive learning embeddings
         self.cl_image_emb = nn.Linear(image_dim, hidden_size, bias=True)
@@ -86,7 +85,7 @@ class MMJepa(nn.Module):
         self.task_weights = {'text2image': 0.5, 'image2text': 0.5}
 
         self._initialize_weights()
-        logger.info(f"Initialized MMJepa with predictor: {predictor_type}")
+        logger.info(f"Initialized M3Jepa with predictor: {predictor_type}")
 
     def _initialize_weights(self) -> None:
         """Initialize weights using Kaiming uniform initialization."""
@@ -186,7 +185,7 @@ class MMJepa(nn.Module):
         total_layers = len(model.encoder.layer)
         if num_layers > total_layers:
             logger.warning(f"Requested {num_layers} layers for LoRA, but model has {total_layers}. Using {total_layers}.")
-            Theorenum_layers = total_layers
+            num_layers = total_layers
 
         selected_layers = model.encoder.layer[-num_layers:]
         logger.info(f"Applying LoRA to {num_layers} of {total_layers} VM layers")
@@ -233,7 +232,7 @@ class MMJepa(nn.Module):
         image_pixel_values: torch.Tensor,
         task: str
     ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
-        """Forward pass through the MMJepa model.
+        """Forward pass through the M3Jepa model.
 
         Args:
             text_input_ids (torch.Tensor): Text input IDs.
@@ -261,4 +260,91 @@ class MMJepa(nn.Module):
 
         return self.task_map[task](text_embedding, image_embedding)
 
-    def _text2
+    def _text2image_forward(
+        self,
+        text_embedding: torch.Tensor,
+        image_embedding: torch.Tensor
+    ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
+        """Forward pass for text-to-image task.
+
+        Args:
+            text_embedding (torch.Tensor): Text embedding.
+            image_embedding (torch.Tensor): Image embedding.
+
+        Returns:
+            Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
+                Weighted loss and embeddings.
+        """
+        t2i_embedding = self.text_to_image_embedding.expand(text_embedding.shape[0], text_embedding.shape[1], -1)
+        text_embedding = text_embedding + t2i_embedding
+
+        pred_image_emb, cl_text_emb = self.predictor(text_embedding, 'text2image')
+        pred_image_emb = pred_image_emb.mean(dim=1)
+        l2_image_emb = image_embedding.mean(dim=1)
+
+        cl_text_emb = cl_text_emb.mean(dim=1)
+        cl_image_emb = self.cl_image_emb(image_embedding).mean(dim=1)
+
+        loss = self._compute_loss(pred_image_emb, l2_image_emb, cl_text_emb, cl_image_emb)
+        return self.task_weights['text2image'] * loss, pred_image_emb, l2_image_emb, cl_text_emb, cl_image_emb
+
+    def _image2text_forward(
+        self,
+        text_embedding: torch.Tensor,
+        image_embedding: torch.Tensor
+    ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
+        """Forward pass for image-to-text task.
+
+        Args:
+            text_embedding (torch.Tensor): Text embedding.
+            image_embedding (torch.Tensor): Image embedding.
+
+        Returns:
+            Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
+                Weighted loss and embeddings.
+        """
+        i2t_embedding = self.image_to_text_embedding.expand(image_embedding.shape[0], image_embedding.shape[1], -1)
+        image_embedding = image_embedding + i2t_embedding
+
+        pred_text_emb, cl_image_emb = self.predictor(image_embedding, 'image2text')
+        pred_text_emb = pred_text_emb.mean(dim=1)
+        l2_text_emb = text_embedding.mean(dim=1)
+
+        cl_image_emb = cl_image_emb.mean(dim=1)
+        cl_text_emb = self.cl_text_emb(text_embedding).mean(dim=1)
+
+        loss = self._compute_loss(pred_text_emb, l2_text_emb, cl_image_emb, cl_text_emb)
+        return self.task_weights['image2text'] * loss, pred_text_emb, l2_text_emb, cl_image_emb, cl_text_emb
+
+def init_m3jepa(
+    image_encoder_name: str,
+    text_encoder_name: str,
+    num_experts: int,
+    hidden_size: int,
+    k_expert: int,
+    dropout_rate: float,
+    predictor_type: str
+) -> M3Jepa:
+    """Initialize the M3Jepa model.
+
+    Args:
+        image_encoder_name (str): Name of the image encoder model.
+        text_encoder_name (str): Name of the text encoder model.
+        num_experts (int): Number of experts for MMoE predictor.
+        hidden_size (int): Size of hidden layers in predictor.
+        k_expert (int): Number of top experts to select in MMoE.
+        dropout_rate (float): Dropout probability.
+        predictor_type (str): Type of predictor ('mlp' or 'mmoe_mlp').
+
+    Returns:
+        M3Jepa: Initialized model.
+    """
+    return M3Jepa(
+        image_encoder_name=image_encoder_name,
+        text_encoder_name=text_encoder_name,
+        num_experts=num_experts,
+        hidden_size=hidden_size,
+        k_expert=k_expert,
+        dropout_rate=dropout_rate,
+        predictor_type=predictor_type
+    )
