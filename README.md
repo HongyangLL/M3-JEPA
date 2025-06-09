@@ -6,7 +6,7 @@ M3-JEPA is a novel framework for multimodal learning that addresses the limitati
 
 ## 🚀 Highlights
 
-### 🔍 Key Contributions of M3-JEPA
+### 🔍 Contributions of M3-JEPA
 
 - ✅ **Any-to-Any Multimodal Alignment:** We propose a novel *any-to-any* multimodal alignment paradigm based on **JEPA**, mitigating modality collapse by aligning in the **latent embedding space** rather than the token space.
 
