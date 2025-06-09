@@ -65,7 +65,7 @@ If you find this work useful in your research, please consider citing our paper:
 
 ```bibtex
 @article{lei2024alt,
-  title={Alt-MoE: Multimodal Alignment via Alternating Optimization of Multi-directional MoE with Unimodal Models},
+  title={M3-Jepa: Multimodal Alignment via Multi-directional MoE based on the JEPA framework},
   author={Lei, Hongyang and Cheng, Xiaolong and Wang, Dan and Qin, Qi and Huang, Huazhen and Wu, Yetao and Gu, Qingqing and Jiang, Zhonglin and Chen, Yong and Ji, Luo},
   journal={arXiv preprint arXiv:2409.05929},
   year={2024}
