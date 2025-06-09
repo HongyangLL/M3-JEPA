@@ -1,4 +1,4 @@
-# 🔍 M3-Jepa: Multimodal Alignment via Multi-directional MoE based on the JEPA framework
+# M3-Jepa: Multimodal Alignment via Multi-directional MoE based on the JEPA framework
 📢 **Published in**:  
 **Proceedings of the Forty-second International Conference on Machine Learning (ICML), 2025**
 
