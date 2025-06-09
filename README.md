@@ -29,7 +29,7 @@ Paradigm of our M3-Jepa. The self-supervised learning is conducted with two enco
 
 Architecture of M3-Jepa: input and output are encoded by modality encoders and aligned on the latent space. A connector consisting of a multi-directional MoE is employed to project the input latent vector to the output space. The optimization is alternated between different uni-direction tasks step by step, and both contrastive learning (CL) and prediction learning (Pred) are implemented by loss components. The text-vision tasks are depicted as an experiment in the figure.
 <p align="center">
-  <img src="image/figure_2.jpg" alt="M3-Jepa Architecture" width="800"/>
+  <img src="image/figure_2.jpg" alt="M3-Jepa Architecture" width="900"/>
 </p>
 
 ## 🛠 Installation
