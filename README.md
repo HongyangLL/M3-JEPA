@@ -5,7 +5,7 @@
 M3-JEPA is a novel framework for multimodal learning that addresses the limitations of token-space alignment, such as modality collapse and poor generalization. Instead of aligning modalities directly in the original token space, **M3-JEPA leverages a Joint Embedding Predictive Architecture (JEPA) to perform alignment in the latent embedding space.** It introduces a **Multi-Gate Mixture-of-Experts (MMoE) predictor** that adaptively disentangles and fuses modality-specific and shared features. This design not only improves alignment and representation quality, but also enhances transferability to unseen modalities and domains, making M3-JEPA a strong foundation for open-world self-supervised multimodal learning.
 
 ## 🔍 Overview of M3-Jepa
-The paradigm of M3-JEPA on any-to-any multi-modality tasks. The self-supervised learning is conducted with two encoding branches of input and output signals, as well as an MoE predictor which projects the input embedding into the output latent space. M3-JEPA is an energy-based model that minimizes both contrastive and regularization losses. M3-JEPA is also conditioned on the inherent information content (g) which maximizes the mutual information and minimizes the conditional entropy.
+
 <p align="center">
   <img src="image/figure_1.jpg" alt="M3-Jepa Architecture" width="500"/>
 </p>
