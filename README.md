@@ -51,7 +51,7 @@ cd m3-jepa
 pip install -r requirements.txt
 ```
 
-📢 Optimization & Release Status
+## 📢 Optimization & Release Status ##
 
 We are currently optimizing it for improved readability and maintainability in preparation for an upcoming release. Follow our progress in Issues or Commits. Stay tuned for a polished release soon! 🧹
 
