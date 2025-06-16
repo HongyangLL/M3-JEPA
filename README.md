@@ -53,7 +53,7 @@ pip install -r requirements.txt
 
 ## 📢 Optimization & Release Status ##
 
-We are currently optimizing it for improved readability and maintainability in preparation for an upcoming release. Follow our progress in Issues or Commits. Stay tuned for a polished release soon! 🧹
+We are currently optimizing M3-JEPA code for improved readability and maintainability in preparation for an upcoming release. Follow our progress in Issues or Commits. Stay tuned for a polished release soon! 🧹
 
 This project provides a distributed training pipeline for a M3-JEPA model using PyTorch.
 
