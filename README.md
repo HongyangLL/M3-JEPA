@@ -70,10 +70,13 @@ This project provides a distributed training pipeline for a M3-JEPA model using 
 If you find this work useful in your research, please consider citing our paper:
 
 ```bibtex
-@article{lei2024alt,
-  title={M3-Jepa: Multimodal Alignment via Multi-directional MoE based on the JEPA framework},
-  author={Lei, Hongyang and Cheng, Xiaolong and Wang, Dan and Qin, Qi and Huang, Huazhen and Wu, Yetao and Gu, Qingqing and Jiang, Zhonglin and Chen, Yong and Ji, Luo},
-  journal={arXiv preprint arXiv:2409.05929},
-  year={2024}
+@misc{lei2025m3jepamultimodalalignmentmultigate,
+      title={M3-JEPA: Multimodal Alignment via Multi-gate MoE based on the Joint-Embedding Predictive Architecture}, 
+      author={Hongyang Lei and Xiaolong Cheng and Qi Qin and Dan Wang and Kun Fan and Huazhen Huang and Qingqing Gu and Yetao Wu and Zhonglin Jiang and Yong Chen and Luo Ji},
+      year={2025},
+      eprint={2409.05929},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2409.05929}, 
 }
 
