@@ -6,7 +6,7 @@
 
 <sup>1</sup>Geely AI Lab, Zhejiang, China  
 <sup>2</sup>Peking University, Beijing, China  
-<sup>3</sup>Shenzhen Institutes of Advanced Technology, Chinese Academy of Sciences, China
+<sup>3</sup>Shenzhen Institutes of Advanced Technology, Chinese Academy of Sciences, Shenzhen, China
 
 </div>
 
