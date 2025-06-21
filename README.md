@@ -10,6 +10,9 @@
 
 </div>
 
+[![ICML](https://img.shields.io/badge/Arxiv-%3C2408.12528%3E-brightgreen)](https://icml.cc/virtual/2025/poster/43776)
+[![Arxiv](https://img.shields.io/badge/Arxiv-%3C2408.12528%3E-brightgreen)](https://arxiv.org/pdf/2409.05929)
+[![ICLR workshop oral](https://img.shields.io/badge/ICLR-%3COpenReview%3E-brightgreen)](https://iclr.cc/virtual/2025/10000619)
 
 📢 **Published in**:  
 **Proceedings of the Forty-second International Conference on Machine Learning (ICML), 2025**
