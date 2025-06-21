@@ -1,6 +1,6 @@
 <div align="center">
 
-# M3-Jepa: Multimodal Alignment via Multi-directional MoE based on the JEPA framework
+# M3-JEPA: Multimodal Alignment via Multi-gate MoE based on the Joint-Embedding Predictive Architecture
 
 *Hongyang Lei<sup>1</sup>, Xiaolong Cheng<sup>1</sup>, Qi Qin<sup>2</sup>, Dan Wang<sup>1</sup>, Huazhen Huang<sup>3</sup>, Yetao Wu<sup>1</sup>, Qingqing Gu<sup>1</sup>, Luo Ji<sup>1</sup>*
 
