@@ -10,9 +10,19 @@
 
 </div>
 
-[![ICML](https://img.shields.io/badge/Arxiv-%3C2408.12528%3E-brightgreen)](https://icml.cc/virtual/2025/poster/43776)
-[![Arxiv](https://img.shields.io/badge/Arxiv-%3C2408.12528%3E-brightgreen)](https://arxiv.org/pdf/2409.05929)
-[![ICLR workshop oral](https://img.shields.io/badge/ICLR-%3COpenReview%3E-brightgreen)](https://iclr.cc/virtual/2025/10000619)
+<p align="center">
+
+  <a href="https://icml.cc/virtual/2025/poster/43776">
+    <img src="https://img.shields.io/badge/ICML-Paper-brightgreen" alt="ICML">
+  </a>
+  <a href="https://arxiv.org/pdf/2409.05929">
+    <img src="https://img.shields.io/badge/arXiv-2409.05929-brightgreen" alt="arXiv">
+  </a>
+  <a href="https://iclr.cc/virtual/2025/10000619">
+    <img src="https://img.shields.io/badge/ICLR-Workshop%20Oral-brightgreen" alt="ICLR Workshop">
+  </a>
+
+</p>
 
 📢 **Published in**:  
 **Proceedings of the Forty-second International Conference on Machine Learning (ICML), 2025**
