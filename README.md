@@ -2,7 +2,11 @@
 
 # M3-Jepa: Multimodal Alignment via Multi-directional MoE based on the JEPA framework
 
-*Hongyang Lei, Xiaolong Cheng, Qi Qin, Dan Wang, Huazhen Huang, Yetao Wu, Qingqing Gu, Luo Ji*
+*Hongyang Lei<sup>1</sup>, Xiaolong Cheng<sup>1</sup>, Qi Qin<sup>2</sup>, Dan Wang<sup>1</sup>, Huazhen Huang<sup>3</sup>, Yetao Wu<sup>1</sup>, Qingqing Gu<sup>1</sup>, Luo Ji<sup>1</sup>*
+
+<sup>1</sup>Geely AI Lab, Zhejiang, China  
+<sup>2</sup>Peking University, Beijing, China  
+<sup>3</sup>Shenzhen Institutes of Advanced Technology, Chinese Academy of Sciences, China
 
 </div>
 
