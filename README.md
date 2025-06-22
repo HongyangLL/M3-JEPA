@@ -12,17 +12,17 @@
 
 <p align="center">
 
-  <a href="https://openreview.net/forum?id=tYwKQMMjJA">
+  <a href="https://icml.cc/virtual/2025/poster/43776">
     <img src="https://img.shields.io/badge/ICML-Paper-brightgreen" alt="ICML">
   </a>
   <a href="https://arxiv.org/pdf/2409.05929">
     <img src="https://img.shields.io/badge/arXiv-2409.05929-brightgreen" alt="arXiv">
   </a>
+    <a href="https://openreview.net/forum?id=tYwKQMMjJA">
+  <img src="https://img.shields.io/badge/OpenReview-Forum-brightgreen" alt="OpenReview">
+  </a>
   <a href="https://iclr.cc/virtual/2025/10000619">
     <img src="https://img.shields.io/badge/ICLR-Workshop%20Oral-brightgreen" alt="ICLR Workshop">
-  </a>
-  <a href="https://openreview.net/forum?id=tYwKQMMjJA">
-  <img src="https://img.shields.io/badge/OpenReview-Forum-brightgreen" alt="OpenReview">
   </a>
 
 </p>
