@@ -58,16 +58,6 @@ Architecture of M3-Jepa: input and output are encoded by modality encoders and a
 
 - 🧪 **Extensive Evaluation:** Our experiments show **strong alignment accuracy and computational efficiency**, covering a wide range of modalities including **text, image, audio**, and more.
 
-## 📄 Paper
-
-**M3-Jepa: Multimodal Alignment via Multi-directional MoE based on the JEPA framework**  
-👨‍💻 *Hongyang Lei, Xiaolong Cheng, Qi Qin, Dan Wang, Huazhen Huang, Yetao Wu, Qingqing Gu, Luo Ji*  
-📍 Accepted at **ICML 2025 (Forty-second International Conference on Machine Learning)**
-
-- 📄 [arXiv (2409.05929)](https://arxiv.org/pdf/2409.05929)  
-- 📝 OpenReview: *coming soon*  
-- 🔗 ICML Proceedings: *coming soon*
-
 ## 🛠 Installation
 
 ```bash
