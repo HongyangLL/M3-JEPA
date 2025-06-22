@@ -21,6 +21,9 @@
   <a href="https://iclr.cc/virtual/2025/10000619">
     <img src="https://img.shields.io/badge/ICLR-Workshop%20Oral-brightgreen" alt="ICLR Workshop">
   </a>
+  <a href="https://openreview.net/forum?id=tYwKQMMjJA">
+  <img src="https://img.shields.io/badge/OpenReview-Forum-brightgreen" alt="OpenReview">
+  </a>
 
 </p>
 
