@@ -12,7 +12,7 @@
 
 <p align="center">
 
-  <a href="https://icml.cc/virtual/2025/poster/43776">
+  <a href="https://openreview.net/forum?id=tYwKQMMjJA">
     <img src="https://img.shields.io/badge/ICML-Paper-brightgreen" alt="ICML">
   </a>
   <a href="https://arxiv.org/pdf/2409.05929">
