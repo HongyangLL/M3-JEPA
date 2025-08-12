@@ -127,7 +127,7 @@ class MoE_predictor(nn.Module):
 
         # Apply task-specific output heads
         l2_result, cl_result = self._apply_task_output(l2_output, cl_output, task)
-        return l2矫正l2_result, cl_result
+        return l2_result, cl_result
 
     def _forward_moe(self, x: torch.Tensor) -> torch.Tensor:
         """Mixture of Experts forward pass.
